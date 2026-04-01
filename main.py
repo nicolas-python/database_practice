@@ -20,9 +20,16 @@ c.executemany("INSERT INTO users (name) VALUES (?)",users)   #executemany für j
 #speichern
 conn.commit()    #Speichert (bestätigt) alle Änderungen dauerhaft in der Datenbank
 
+#user löschen
+c.execute("DELETE FROM users WHERE name = ?", ("Nico",))
+
 #überprüfen ob user da ist
 c.execute("SELECT * FROM users")        #c.execute = Befehl, um einen neuen Datensatz in die Tabelle einzufügen
 print(c.fetchall())        #c.fetchall=alle Ergebnisse abrufen
+
+#alle löschen
+#c.execute("DELETE FROM users")
+#conn.commit()
 
 # schließen
 conn.close()      #schließen
