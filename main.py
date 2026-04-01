@@ -21,7 +21,11 @@ c.executemany("INSERT INTO users (name) VALUES (?)",users)   #executemany für j
 conn.commit()    #Speichert (bestätigt) alle Änderungen dauerhaft in der Datenbank
 
 #user löschen
-c.execute("DELETE FROM users WHERE name = ?", ("Nico",))
+c.execute("DELETE FROM users WHERE name = ?", ("Timo",))
+
+#namen ändern
+c.execute("UPDATE users SET name = ? WHERE name = ?", ("Niklas", "Nico"))    #ohne where werden alle user geändert
+conn.commit()
 
 #überprüfen ob user da ist
 c.execute("SELECT * FROM users")        #c.execute = Befehl, um einen neuen Datensatz in die Tabelle einzufügen
